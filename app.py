@@ -8,8 +8,8 @@ import re
 app = Flask(__name__)
 
 # Configuración de Tesseract
-pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
-os.environ['TESSDATA_PREFIX'] = r'C:\Program Files\Tesseract-OCR\tessdata'  # Ahora funcionará
+pytesseract.pytesseract.tesseract_cmd = '/usr/bin/tesseract'  # Ruta estándar en Linux
+os.environ['TESSDATA_PREFIX'] = '/usr/share/tesseract-ocr/4.00/tessdata'  # Ruta de los archivos de idioma
 
 @app.route('/ocr', methods=['POST'])
 def ocr():
