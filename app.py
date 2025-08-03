@@ -23,12 +23,14 @@ def ocr():
         image = Image.open(io.BytesIO(file.read()))
         text = pytesseract.image_to_string(image, lang='spa')
 
+        # Regex para extraer el número de CI después de "No.", "N°", etc.
         priority_pattern = r'(?:No|N°|NUMERO)[\s.:]*[\$]?\s*(\d{7,8})'
         priority_match = re.search(priority_pattern, text, re.IGNORECASE)
 
         if priority_match:
             return jsonify({'ci': priority_match.group(1)})
 
+        # Fallback: Busca cualquier número de 7-8 dígitos
         fallback_match = re.search(r'\b\d{7,8}\b', text)
         if fallback_match:
             return jsonify({'ci': fallback_match.group(0)})

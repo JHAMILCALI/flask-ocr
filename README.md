@@ -53,15 +53,22 @@ pip install face_recognition
 ```
 ## 🧪 Cómo probar
 Usando Postman o cURL
-Endpoint /ocr
+- Endpoint para obtener No. identidad
+```bash
+http://127.0.0.1:5000/ocr
+```
+- Endpoint para carnet y Imagen
+```bash
+http://127.0.0.1:5000/compare-faces
+```
 Método: POST
 Tipo de cuerpo: form-data
 Campos:
 
 - image1: imagen del rostro en el DNI
-
+![carnet](./Img%20prubas/carnet2.png)
 - image2: imagen del rostro externo (selfie)
-
+![IMG](./Img%20prubas/John-Cena.jpg)
 Respuesta esperada:
 
 ```json
