@@ -8,8 +8,8 @@ import re
 app = Flask(__name__)
 
 # Configuración de Tesseract
-pytesseract.pytesseract.tesseract_cmd = '/usr/bin/tesseract'  # Ruta estándar en Linux
-os.environ['TESSDATA_PREFIX'] = '/usr/share/tesseract-ocr/4.00/tessdata'  # Ruta de los archivos de idioma
+pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+os.environ['TESSDATA_PREFIX'] = r'C:\Program Files\Tesseract-OCR\tessdata'  # Ahora funcionará
 
 @app.route('/ocr', methods=['POST'])
 def ocr():
@@ -37,6 +37,6 @@ def ocr():
 
     except Exception as e:
         return jsonify({'error': str(e)}), 500
-port = int(os.environ.get("PORT", 5000))
+
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=port) 
+    app.run(debug=True, port=5000)
