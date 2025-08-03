@@ -1,5 +1,6 @@
 flask==2.3.2
 pytesseract==0.3.10
+tesserocr==2.6.0 
 pillow==9.5.0  # Versión estable más reciente
 numpy==1.23.5  # Versión conocida por ser estable en Python 3.9
 opencv-python-headless==4.8.0.76  # Si usas OpenCV
